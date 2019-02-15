@@ -1,0 +1,25 @@
+html, body {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+
+    &.no-scroll {
+        position: fixed;
+        width: 100%;
+    }
+}
+
+
+a {
+    text-decoration: none;
+    max-height: 100%;
+}
+
+p,
+a,
+div,
+section,
+header,
+footer {
+    box-sizing: border-box;
+    max-height: 99999rem;
+}

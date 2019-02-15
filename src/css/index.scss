@@ -1,0 +1,10 @@
+@import "lib/mixin";
+@import "lib/normalize";
+
+@import "common/base";
+
+html, body {
+    background: #fff;
+    color: #000;
+    width: 100%;
+}
