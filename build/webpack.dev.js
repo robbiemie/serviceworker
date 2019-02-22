@@ -7,6 +7,7 @@ module.exports = {
   devServer: {
     hot: true,
     open: true,
+    port: 8080,
     quiet: true, // necessary for FriendlyErrorsPlugin
     // 随机搞一个端口吧
     // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
