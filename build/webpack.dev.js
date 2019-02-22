@@ -3,17 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, '../index.js'),
+  entry: {
+    app: path.resolve(__dirname, '../index.js')
+  },
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
     hot: true,
     open: true,
     port: 8080,
-    quiet: true, // necessary for FriendlyErrorsPlugin
+    quiet: true // necessary for FriendlyErrorsPlugin
     // 随机搞一个端口吧
-    // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
-    watchOptions: {
-      poll: false
-    }
   },
   plugins: [
     new HtmlWebpackPlugin({

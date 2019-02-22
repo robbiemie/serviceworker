@@ -1,31 +1,46 @@
 let cacheFiles = [
-  'test.js'
+  './test.js',
+  './index.html',
+  './src/img/yy.png'
 ]
-
+let __version__ = 'cache-v2'
+// 文件缓存
 self.addEventListener('install', e => {
+  // 强制更新sw
+  self.skipWaiting()
   e.waitUntil(
-    caches.open('cache-v1').then(cache => {
+    caches.open(__version__).then(cache => {
       return cache.addAll(cacheFiles)
     })
   )
 })
-self.addEventListener('fetch', function (evt) {
-  evt.respondWith(
-    caches.match(evt.request).then(function (response) {
-      if (response) {
-        return response
-      }
-      var request = evt.request.clone()
-      return fetch(request).then(function (response) {
-        if (!response && response.status !== 200 && !response.headers.get('Content-type').match(/image/)) {
-          return response
-        }
-        var responseClone = response.clone()
-        caches.open('cache-v1').then(function (cache) {
-          cache.put(evt.request, responseClone)
+// 缓存更新
+self.addEventListener('activate', e => {
+  e.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== __version__) {
+            return caches.delete(cacheName)
+          }
         })
-        return response
+      )
+    })
+  )
+})
+// 请求代理
+self.addEventListener('fetch', e => {
+  // if (e.request.url.match('sockjs')) return
+  e.respondWith(
+    caches.match(e.request).catch(_ => {
+      return fetch(e.request)
+    }).then(res => {
+      caches.open(__version__).then(cache => {
+        cache.put(e.request, res)
       })
+      return res.clone()
+    }).catch(res => {
+      return res
     })
   )
 })
