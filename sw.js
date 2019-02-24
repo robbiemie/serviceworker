@@ -29,18 +29,29 @@ self.addEventListener('activate', e => {
   )
 })
 // 请求代理
-self.addEventListener('fetch', e => {
-  // if (e.request.url.match('sockjs')) return
-  e.respondWith(
-    caches.match(e.request).catch(_ => {
-      return fetch(e.request)
-    }).then(res => {
-      caches.open(__version__).then(cache => {
-        cache.put(e.request, res)
+self.addEventListener('fetch', function (event) {
+  console.log('Handling fetch event for', event.request.url)
+  if (event.request.url.match('sockjs')) return
+  event.respondWith(
+    caches.match(event.request).then(function (response) {
+      if (response) {
+        console.log('Found response in cache:', response)
+
+        return response
+      }
+      console.log('No response found in cache. About to fetch from network...', caches)
+
+      return fetch(event.request).then(function (response) {
+        console.log('Response from network is:', response)
+        caches.open(__version__).then(function (cache) {
+          cache.put(event.request, response)
+          return response
+        })
+      }).catch(function (error) {
+        console.error('Fetching failed:', error)
+
+        throw error
       })
-      return res.clone()
-    }).catch(res => {
-      return res
     })
   )
 })
