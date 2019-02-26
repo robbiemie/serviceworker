@@ -1,5 +1,19 @@
 # service Worker 实践
 
+
+## 启动项目
+
+1. 下载到本地
+
+```bash
+$ git clone git@github.com:yang657850144/serviceworker.git
+```
+
+2. `npm install`
+
+3. 执行 `npm run server`
+
+
 ## 生命周期
 
 > 通过了解生命周期，进行创建 `service worker`，。
