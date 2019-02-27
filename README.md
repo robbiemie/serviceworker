@@ -56,6 +56,7 @@ $ git clone git@github.com:yang657850144/serviceworker.git
 2. [什么是serviceworker](https://lavas.baidu.com/pwa/offline-and-cache-loading/service-worker/service-worker-introduction)
 3. [如何使用](https://lavas.baidu.com/pwa/offline-and-cache-loading/service-worker/how-to-use-service-worker)
 4. [生命周期](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle)
+5. [Service_Worker_API](https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API)
 
 ## 离线化开发
 
@@ -66,4 +67,10 @@ $ git clone git@github.com:yang657850144/serviceworker.git
 
 1. [缓存更新常用方式](https://zhuanlan.zhihu.com/p/51118741)
 2. [缓存更新改进建议](https://github.com/lavas-project/lavas/issues/212)
+3. [Service Worker 更新机制](https://harttle.land/2017/04/10/service-worker-update.html)
+
+## 最佳实践
+
+1. [Service Worker最佳实践](https://x5.tencent.com/tbs/guide/serviceworker.html)
+2. [Service Worker 全面进阶](https://www.villainhr.com/page/2017/01/08/Service%20Worker%20%E5%85%A8%E9%9D%A2%E8%BF%9B%E9%98%B6)
 
