@@ -74,3 +74,6 @@ $ git clone git@github.com:yang657850144/serviceworker.git
 1. [Service Worker最佳实践](https://x5.tencent.com/tbs/guide/serviceworker.html)
 2. [Service Worker 全面进阶](https://www.villainhr.com/page/2017/01/08/Service%20Worker%20%E5%85%A8%E9%9D%A2%E8%BF%9B%E9%98%B6)
 
+## 前端缓存相关文档
+
+1. [一文读懂前端缓存](https://zhuanlan.zhihu.com/p/44789005)
