@@ -1,5 +1,7 @@
 # service Worker 实践
 
+> `serviceworker` 方案已集成到 `webpack-plugins`,源码请参考: [serviceworker-webpack-plugins](https://github.com/yang657850144/serviceworker-webpack-plugins)
+
 
 ## 启动项目
 
